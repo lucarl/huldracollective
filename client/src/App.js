@@ -58,6 +58,7 @@ class App extends Component {
       eMail: eMail}*/
 
     fetch('http://localhost:3000/submit', {
+        mode: 'cors',
         method: 'POST',
         headers: {
           'Accept': 'application/json',
