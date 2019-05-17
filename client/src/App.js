@@ -30,7 +30,7 @@ class App extends Component {
 
     // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
     callBackendAPI = async () => {
-    const response = await fetch('http://localhost:3000/express_backend');
+    const response = await fetch('http://localhost:3000/express_backend',{mode: 'cors'});
     
     const body = await response.json();
 
