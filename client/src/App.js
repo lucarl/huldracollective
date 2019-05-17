@@ -30,7 +30,7 @@ class App extends Component {
 
     // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
     callBackendAPI = async () => {
-    const response = await fetch('http://localhost:3000/express_backend',{mode: 'cors'});
+    const response = await fetch('http://localhost:3000/express_backend');
     
     const body = await response.json();
 
@@ -58,7 +58,6 @@ class App extends Component {
       eMail: eMail}*/
 
     fetch('http://localhost:3000/submit', {
-        mode: 'cors',
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -77,7 +76,7 @@ class App extends Component {
     };
 
   render() {
-    //console.log(this.state.data)
+    console.log(this.state.data)
     return(
       <div className="center">
           <Header className="App-center"/>
