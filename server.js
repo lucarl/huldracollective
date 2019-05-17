@@ -15,6 +15,9 @@ app.use(bodyParser.json());
 
 var information = {}
 
+//Static file declaration
+app.use(express.static(path.join(__dirname, 'client/build')));
+
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
