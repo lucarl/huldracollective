@@ -3,7 +3,8 @@ import logo from '../huldraimg.jpg'; // Tell Webpack this JS file uses this imag
 
 function Header() {
   // Import result is the URL of your image
-  return <img src={logo} alt="Logo" />;
+  return <img   resizeMode={'cover'}
+  style={{ width: '60%'}} src={logo} alt="Logo" />;
 }
 
 export default Header;
