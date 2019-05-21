@@ -8,7 +8,7 @@ const path = require('path');
 
 const creds = require('./client_secret.json')
 
-
+app.use(express.static(__dirname + '/static', { dotfiles: 'allow' } ))
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -31,9 +31,14 @@ if (process.env.NODE_ENV === 'production') {
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // create a GET route
-app.get('/.well-known/acme-challenge/nhikpm0nEkgvhGYahSL5rPNpFHrPU5gQDRYho-D0Hqk', (req, res) => {
-  res.send('nhikpm0nEkgvhGYahSL5rPNpFHrPU5gQDRYho-D0Hqk.31evO60z7E6d-CuygpDNYFb5XjoRjRHwQyyZPq3GIZA');
+app.get('/express_backend', (req, res) => {
+  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
+
+/*app.get('/.well-known/acme-challenge', (req,res) => {
+  res.send({ express: '3e-OYSuCvGwxlp4grPhBhFx5Eu5FG_nn0C7mmGZ6pDQ.31evO60z7E6d-CuygpDNYFb5XjoRjRHwQyyZPq3GIZA'})
+  
+});*/ 
 
 async function accessSpreadsheet() {
   const doc = new GoogleSpreadsheet('1nnhZboHVmk0NXOvAvcgqm15x1CNSJf_2ap6Apd_0h6s')
