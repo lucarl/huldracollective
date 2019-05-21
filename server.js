@@ -35,7 +35,7 @@ app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.get('/.well-known', (req,res) => {
+app.get('/.well-known/acme-challenge/:content', (req,res) => {
   res.send('w4sC0EOz-n5Uq0eJBlKuVZMTtS0tNLpwiow_dTyoBVM.31evO60z7E6d-CuygpDNYFb5XjoRjRHwQyyZPq3GIZA')
 }); 
 
