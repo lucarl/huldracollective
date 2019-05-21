@@ -35,6 +35,10 @@ app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
+app.get('/.well-known', (req,res) => {
+  res.send('w4sC0EOz-n5Uq0eJBlKuVZMTtS0tNLpwiow_dTyoBVM.31evO60z7E6d-CuygpDNYFb5XjoRjRHwQyyZPq3GIZA')
+}); 
+
 async function accessSpreadsheet() {
   const doc = new GoogleSpreadsheet('1nnhZboHVmk0NXOvAvcgqm15x1CNSJf_2ap6Apd_0h6s')
   await promisify(doc.useServiceAccountAuth)(creds);
