@@ -4,25 +4,18 @@ var bodyParser = require("body-parser");
 const port = process.env.PORT || 5000;
 const GoogleSpreadsheet = require('google-spreadsheet');
 const { promisify } = require('util');
-const fs = require('fs');
-const http = require('http');
-const https = require('https');
-
 const path = require('path');
 
 const creds = require('./client_secret.json')
 
-app.use(express.static(__dirname + '/static', { dotfiles: 'allow' } ))
-//Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-var information = {}
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
 
 // Certificate
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/privkey.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/cert.pem', 'utf8');
-const ca = fs.readFileSync('/etc/letsencrypt/live/yourdomain.com/chain.pem', 'utf8');
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/huldracollective.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/huldracollective.com/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/huldracollective.com/chain.pem', 'utf8');
 
 const credentials = {
 	key: privateKey,
@@ -45,6 +38,13 @@ httpServer.listen(80, () => {
 httpsServer.listen(443, () => {
 	console.log('HTTPS Server running on port 443');
 });
+
+app.use(express.static(__dirname + '/static', { dotfiles: 'allow' } ))
+//Here we are configuring express to use body-parser as middle-ware.
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+var information = {}
 
 //Static file declaration
 app.use(express.static(path.join(__dirname, 'client/build')));
