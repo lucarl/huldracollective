@@ -35,8 +35,8 @@ app.get('/express_backend', (req, res) => {
   res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
 });
 
-app.get('/.well-known/acme-challenge/-M5AM7a5mLHuHvHMPIiocdqbbqXiLqYwhu6GGu-cCo4', (req,res) => {
-  res.send('w4sC0EOz-n5Uq0eJBlKuVZMTtS0tNLpwiow_dTyoBVM.31evO60z7E6d-CuygpDNYFb5XjoRjRHwQyyZPq3GIZA')
+app.get('/.well-known/acme-challenge/3e-OYSuCvGwxlp4grPhBhFx5Eu5FG_nn0C7mmGZ6pDQ', (req,res) => {
+  res.send('3e-OYSuCvGwxlp4grPhBhFx5Eu5FG_nn0C7mmGZ6pDQ.31evO60z7E6d-CuygpDNYFb5XjoRjRHwQyyZPq3GIZA')
 }); 
 
 async function accessSpreadsheet() {
