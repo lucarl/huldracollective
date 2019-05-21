@@ -13,12 +13,11 @@ const http = require('http');
 const https = require('https');
 
 // Certificate
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/huldracollective.com/privkey.pem', 'utf8');
+//const privateKey = fs.readFileSync('/etc/letsencrypt/live/huldracollective.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/huldracollective.com/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/huldracollective.com/chain.pem', 'utf8');
 
 const credentials = {
-	key: privateKey,
 	cert: certificate,
 	ca: ca
 };
