@@ -31,13 +31,9 @@ if (process.env.NODE_ENV === 'production') {
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // create a GET route
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+app.get('/.well-known/acme-challenge/nhikpm0nEkgvhGYahSL5rPNpFHrPU5gQDRYho-D0Hqk', (req, res) => {
+  res.send('nhikpm0nEkgvhGYahSL5rPNpFHrPU5gQDRYho-D0Hqk.31evO60z7E6d-CuygpDNYFb5XjoRjRHwQyyZPq3GIZA');
 });
-
-app.get('/.well-known/acme-challenge/3e-OYSuCvGwxlp4grPhBhFx5Eu5FG_nn0C7mmGZ6pDQ', (req,res) => {
-  res.send('3e-OYSuCvGwxlp4grPhBhFx5Eu5FG_nn0C7mmGZ6pDQ.31evO60z7E6d-CuygpDNYFb5XjoRjRHwQyyZPq3GIZA')
-}); 
 
 async function accessSpreadsheet() {
   const doc = new GoogleSpreadsheet('1nnhZboHVmk0NXOvAvcgqm15x1CNSJf_2ap6Apd_0h6s')
